@@ -1,0 +1,1132 @@
+/*css
+Editores: Magno, Bruna, Bruno, Lucas, William
+Data da primeira modificação: 19/03/2018
+Data da ultima modificação: 14/04/2018
+Obs: Sistema de Gerenciamento do Site
+*/
+
+/*Conteudo do site*/
+body{
+  margin: 0px;
+  padding: 0px;
+}
+/*Container principal que segura do conteudo*/
+.container_cms{
+  width:100%;
+  height: auto;
+  min-height: 100vh;
+}
+/*Cabeçalho do sistema*/
+header{
+  width: 100%;
+  height: 10vh;
+  background-color: #000;
+}
+/*area do logo da empresa*/
+.cont_logo{
+  width: 20%;
+  height: 10vh;
+  float: left;
+  margin-right: 53%;
+}
+
+.img_logo{
+  width: 60px;
+  height: 10vh;
+  float: left;
+  margin-right: 10px;
+}
+
+.tex_logo{
+  float: left;
+  margin-top: 6vh;
+  font-family: sans-serif;;
+  font-size: 18px;
+  color:#0B614B;
+}
+/*area do usuario*/
+.cont_usuario{
+  width: 27%;
+  height: 10vh;
+  float: left;
+}
+
+.logout{
+  width: 100px;
+  height: 25px;
+  float: left;
+  margin-right: 30px;
+  margin-top: 3vh;
+  border-radius: 10px;
+}
+
+.text_user{
+  width: 180px;
+  float: left;
+  margin-top: 3.5vh;
+  font-family: sans-serif;;
+  font-size: 18px;
+  color: #0B614B;
+}
+
+.img_user{
+  float: left;
+  width: 50px;
+  height: 7vh;
+  margin-top: 1vh;
+}
+/*menu lateral do sistema*/
+nav{
+  width: 15%;
+  height: auto;
+  min-height: 90vh;
+  background-color: #000;
+  float: left;
+}
+.mainmenu, .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a {
+    min-height: 0px;
+    height: 35px;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 15px;
+    border-bottom: solid 1px #0B614B;
+    margin-top: 10px;
+}
+.mainmenu li:hover .submenu {
+    display: block;
+    max-height: 1000px;
+}
+.submenu {
+    overflow: hidden;
+    max-height: 0px;
+    -webkit-transition: all 1s ease-out;
+}
+
+.submenu a {
+  margin: 0px;
+  padding: 0px;
+  background-color: #0B614B;
+  border-bottom: solid 1px #000;
+}
+
+/*Conteudo que aparecera a partir da opção d menu lateral*/
+#main{
+  width: 85%;
+  height: auto;
+  min-height: 90vh;
+  background-color: #d8d8d8;
+  float: left;
+}
+/*Duvidas Frequentes*/
+/*layout*/
+.abas{
+  background-color: #fff;
+  width: 100%;
+  height: 7vh;
+  border-bottom: solid 1px #000;
+}
+.labels{
+  width: 120px;
+  height: 6vh;
+  background-color: #084B8A;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+  float: left;
+  margin-top: 7px;
+  margin-right: 10px;
+  line-height: 6vh;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+.title_page{
+  float: left;
+  margin-left: 58%;
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #084B8A;
+  margin-top: 10px;
+}
+/*cadastro*/
+.cadastro_duvida{
+  width: 550px;
+  height: 60vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.text_duvida{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #084B8A;
+}
+
+.box_duvida{
+  margin-left: 15%;
+  border-radius: 10px;
+  width: 70%;
+  height: 25px;
+}
+
+.box_area{
+  margin-left: 15%;
+  border-radius: 10px;
+  width: 70%;
+  height: 100px;
+}
+.salvar_duvida{
+  width: 25%;
+  height: 30px;
+  margin-left: 37.5%;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+/*lista*/
+.lista_duvida{
+  background-color: #084B8A;
+  width: 70%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_duvida{
+  width: 24.6%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista{
+  width: 70%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar{
+  width: 24%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+/*Frotas*/
+.cadastro_frotas{
+  width: 550px;
+  height: 50vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.text_frotas{
+  text-align: center;
+  color: #084B8A;
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 15px;
+}
+.box_frotas{
+  width: 60%;
+  height: 25px;
+  margin-left: 20%;
+  border-radius: 10px;
+}
+.inpt_foto{
+  display: none;
+}
+.img_frotas{
+  width: 20%;
+  height: 100px;
+  margin-left: 40%;
+}
+.salvar_frota{
+  margin-top: 15px;
+  width: 24%;
+  height: 30px;
+  margin-left: 38%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+
+.adicionar_frota{
+  display: flex;
+  align-self: center;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+.imagem_lista{
+  width: 100px;
+  height: 50px;
+}
+/*Home*/
+.cadastro_home{
+  width: 50%;
+  height: 70vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.text_home{
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 13px;
+  text-align: center;
+  color: #084B8A;
+}
+
+.box_home{
+  width: 80%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+.select_home{
+  width: 44%;
+  margin-left: 28%;
+  height: 25px;
+  border-radius: 10px;
+}
+/*.inpt_foto{
+  display: none;
+}*/
+.img_home{
+  width: 14%;
+  height: 60px;
+  margin-left: 42%;
+}
+.salvar_home{
+  width: 24%;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 38%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+
+/*lista*/
+.lista_duvida{
+  background-color: #084B8A;
+  width: 70%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_home{
+  width: 25%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista{
+  width: 70%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar_home{
+  width: 24.2%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+/*Interacao*/
+/*Pagina Postos_Rodoviarios*/
+.cadastro_postos{
+  width: 50%;
+  height: 70vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.text_postos{
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 13px;
+  text-align: center;
+  color: #084B8A;
+}
+
+.box_postos{
+  width: 80%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+.select_postos{
+  width: 60%;
+  margin-left: 20%;
+  height: 25px;
+  border-radius: 10px;
+}
+/*.inpt_foto{
+  display: none;
+}*/
+.img_postos{
+  width: 14%;
+  height: 60px;
+  margin-left: 42%;
+}
+.salvar_postos{
+  width: 24%;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 38%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+/*estados postos rodoviario*/
+.container_estados{
+  width: 45%;
+  float: left;
+}
+.list_estado{
+  background-color: #084B8A;
+  width: 100%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  float: left;
+}
+
+.itens_estado{
+  width: 48%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista_estado{
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+}
+.itens_mostrar_estado{
+  width: 48%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+.cadastro_estado{
+  width: 45%;
+  height: 50vh;
+  background-color: #fff;
+  float: left;
+  margin-left: 4%;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  margin-top: 10px;
+}
+/*Sobre_Empresa*/
+.cadastro_empresa{
+  width: 60%;
+  height: 60vh;
+  background-color: yellow;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.cont_text{
+  width: 50%;
+  height: 60vh;
+  float: left;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #fff;
+}
+.cont_icons{
+  width: 50%;
+  height: 60vh;
+  float: left;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #fff;
+}
+.text_empresa{
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 13px;
+  margin-left: 10%;
+  color: #084B8A;
+}
+.box_empresa{
+  width: 80%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+.box_area{
+  width: 80%;
+  margin-left: 10%;
+  height: 60;
+  border-radius: 10px;
+}
+.salva_empresa{
+  width: 25%;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 65%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+.title_page_posto{
+  float: left;
+  font-size: 20px;
+  margin-left: 43%;
+  font-family: sans-serif;
+  color: #084B8A;
+  margin-top: 10px;
+}
+/*lista*/
+.lista_empresa{
+  background-color: #084B8A;
+  width: 60%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_empresa{
+  width: 33%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista_empresa{
+  width: 60%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar_empresa{
+  width: 32%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+/*.inpt_foto{
+  display: none;
+}*/
+.img_empresa{
+  width: 20%;
+  height: 60px;
+  margin-left: 10%;
+}
+.icon_empresa{
+  width: 50%;
+  height: 27px;
+  margin-left: 10%;
+  border-radius: 15px;
+  background-color: #01DFD7;
+  text-align: center;
+}
+/*Cadastro de funcionarios*/
+.cadastro_funcionario{
+  width: 60%;
+  height: 80vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.cont_pessoais{
+  width: 50%;
+  height: 80vh;
+  float: left;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.cont_endereco{
+  width: 50%;
+  height: 80vh;
+  float: left;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.text_funcionario{
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 13px;
+  margin-left: 10%;
+  color: #084B8A;
+}
+.radio{
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #084B8A;
+  margin-left: 10%;
+}
+.box_funcionario{
+  width: 80%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+
+.salvar_funcionario{
+  width: 25%;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 65%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+/*MODAL de edição das paginas*/
+.modal{
+	width:900px;
+	min-height:650px;
+	background-color:#ffffff;
+	margin:auto;
+  margin-top: 40px;
+}
+.modalContainer{
+	width:100%;
+	height:100%;
+	background: rgba(0, 0, 0, 0.7);
+	position:fixed;
+	display:none;
+}
+.fecharModal{
+  width: 30px;
+  height: 30px;
+  margin-left: 770px;
+  color: #af1f1f;
+}
+.tltModal{
+  width: 500px;
+  height: 20px;
+  margin: auto;
+  text-align: center;
+  font-family: "opensansbold";
+  font-size: 18px;
+  border-bottom: 1px #1f405e solid;
+  margin-bottom: 10px;
+  color:#1f405e;
+}
+/* Cadastro de onibus */
+.cadastro_onibus{
+  width: 60%;
+  height: 50vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.cont_onibus1{
+  width: 50%;
+  height: 50vh;
+  float: left;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.cont_onibus2{
+  width: 50%;
+  height: 50vh;
+  float: left;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.text_onibus{
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 13px;
+  margin-left: 10%;
+  color: #084B8A;
+}
+.box_onibus{
+  width: 80%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+.select_onibus{
+  width: 44%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+/*.inpt_foto{
+  display: none;
+}*/
+.img_onibus{
+  width: 15%;
+  height: 60px;
+  margin-left: 10%;
+}
+.salva_onibus{
+  width: 25%;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 65%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+.title_page_posto{
+  float: left;
+  font-size: 20px;
+  margin-left: 43%;
+  font-family: sans-serif;
+  color: #084B8A;
+  margin-top: 10px;
+}
+/*lista*/
+.lista_empresa{
+  background-color: #084B8A;
+  width: 60%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_empresa{
+  width: 33%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista_empresa{
+  width: 60%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar_empresa{
+  width: 32%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+/* Cadastro de Postos Rodoviarios */
+.cadastro_duvida{
+  width: 550px;
+  height: 65vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.text_duvida{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #084B8A;
+}
+
+.box_duvida{
+  margin-left: 15%;
+  border-radius: 10px;
+  width: 70%;
+  height: 25px;
+}
+
+.select_postos_rodoviarios{
+  width: 44%;
+  margin-left: 28%;
+  height: 25px;
+  border-radius: 10px;
+}
+.img_postos_rodoviarios{
+  width: 20%;
+  height: 100px;
+  margin-left: 40%;
+}
+.salvar_postos_rodoviarios{
+  width: 25%;
+  height: 30px;
+  margin-left: 37.5%;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+/* Vendas */
+.cadastro_funcionario{
+  width: 60%;
+  height: 65vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.cont_pessoais{
+  width: 50%;
+  height: 65vh;
+  float: left;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.cont_endereco{
+  width: 50%;
+  height: 65vh;
+  float: left;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.text_duvida{
+  text-align: center;
+  margin-top: 15px;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #084B8A;
+}
+
+.box_duvida{
+  margin-left: 15%;
+  border-radius: 10px;
+  width: 70%;
+  height: 25px;
+}
+
+.select_postos_rodoviarios{
+  width: 44%;
+  margin-left: 28%;
+  height: 25px;
+  border-radius: 10px;
+}
+.img_postos_rodoviarios{
+  width: 20%;
+  height: 100px;
+  margin-left: 40%;
+}
+.salvar_postos_rodoviarios{
+  width: 25%;
+  height: 30px;
+  margin-left: 37.5%;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+/* Motorista */
+.cadastrar_motorista{
+  width: 60%;
+  height: 70vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.img_motorista{
+  width: 10%;
+  height: 50px;
+  margin-left: 40%;
+}
+
+.adicionar-foto{
+  display: flex;
+  align-self: center;
+  width: 100px;
+  height: 100px;
+}
+
+.input-foto{
+  display: none;
+}
+
+#id_sua_img{
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 100px;
+}
+
+/*Botão para selecionar a foto*/
+.botao_foto_perfil{
+  margin-left: 37.5%;
+}
+/* Usuario */
+.lista_duvida{
+  background-color: #084B8A;
+  width: 70%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_motorista{
+  width: 19%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+  margin-right: 10px;
+}
+.container_lista{
+  width: 70%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar_motorista{
+  width: 19%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+/* Cadastro de onibus */
+
+.adicionar-foto{
+  display: flex;
+  align-self: center;
+  width: 190px;
+  height: 200px;
+  margin-right: 15%;
+}
+
+.input-foto{
+  display: none;
+}
+
+/*Botão para selecionar a foto*/
+.botao_foto_perfil{
+  margin-left: 37.5%;
+}
+/*Container para colocar a imagem de perfil*/
+#imagem{
+  cursor: pointer;
+  width: 190px;
+  height: 200px;
+  /* margin: auto; */
+}
+
+label#imagem{
+  margin: 0px;
+  align-self: center;
+}
+
+#id_sua_img{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 100px;
+  margin-right: 5%;
+}
+
+.cadastro_onibus{
+  width: 60%;
+  height: 50vh;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+.cont_onibus1{
+  width: 50%;
+  height: 50vh;
+  float: left;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.cont_onibus2{
+  width: 50%;
+  height: 50vh;
+  float: left;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.text_onibus{
+  font-size: 15px;
+  font-family: sans-serif;
+  margin-top: 13px;
+  margin-left: 10%;
+  color: #084B8A;
+}
+.box_onibus{
+  width: 80%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+.select_onibus{
+  width: 44%;
+  margin-left: 10%;
+  height: 25px;
+  border-radius: 10px;
+}
+/*.inpt_foto{
+  display: none;
+}*/
+.img_onibus{
+  width: 15%;
+  height: 60px;
+  margin-left: 10%;
+}
+.salva_onibus{
+  width: 25%;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 65%;
+  border-radius: 15px;
+  background-color: #084B8A;
+}
+.title_page_posto{
+  float: left;
+  font-size: 20px;
+  margin-left: 43%;
+  font-family: sans-serif;
+  color: #084B8A;
+  margin-top: 10px;
+}
+/*Lista onibus*/
+
+/*lista*/
+.lista_onibus{
+  background-color:#084B8A;
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.item_onibus{
+  width: 16.5%;
+  height: 40px;
+  float: left;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container_lista{
+  width: 80%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.itens_mostrar{
+  width: 16%;
+  height: 50px;
+  float: left;
+  margin-left:4px;
+  font-size: 16px;
+  font-family: "opensansbold";
+  text-align: center;
+  line-height: 40px;
+  border: 1px #fff solid;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+/*conteudo das paginas*/
+.conteudo{
+  width: 100%;
+  height: 82.8vh;
+}

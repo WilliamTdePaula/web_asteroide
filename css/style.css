@@ -1,0 +1,2586 @@
+/*
+Editores: Magno, Bruno, Bruna, Lucas, William
+Data de modificação: 19/03/2018
+Obs: Arquivo principal para edições nas páginas
+*/
+
+/*
+  Paleta de cores:
+  -- Definir --
+  #4d9b61
+  #458665
+  #3f635f
+  #384e59
+  #1F405E
+  #162E44
+  #000000
+*/
+
+/*
+  Fonts
+
+*/
+
+@font-face {
+  src: url('../fonts/nunito/Nunito-Regular.ttf');
+  font-family: "Nunito", sans-serif;
+}
+
+/* Configurações dos itens para todas as páginas */
+body{
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.0rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+/* Padroniza  a input */
+input{
+  border: none;
+  background-color: inherit;
+  width: auto;
+  border-bottom: 2px solid #C0C0C0;
+}
+/* padrão de input pequena */
+.small input{
+  width: 180px;
+}
+/* padrão de input media */
+.medium input{
+  width: 296px;
+}
+/* padrão de input grande */
+.large input{
+  width: 400px;
+}
+
+/* Aplica efeito de troca de cores na borda da input */
+input.btn:hover{
+  background-color: #4d9b61;
+  border:0px;
+  transition: 1s;
+}
+/* Padroniza a estilização de inputs ao receber foco */
+input:focus, select:focus {
+    box-shadow: 5 5;
+    border-bottom:  none;
+    outline: 0;
+    border-bottom: 2px solid #384e59;
+    /* border-bottom: 2px solid #1F405E; */
+    transition:1s;
+}
+/* Define padrao de curvatura da select */
+select{
+  border-radius:5px;
+}
+/* retira o aumento de tamanho da textarea */
+textarea{
+  resize:none;
+}
+
+textarea:focus{
+  box-shadow: 5 5;
+  border-bottom:  none;
+  outline: 0;
+  border: 2px solid #384e59;
+  /* border-bottom: 2px solid #1F405E; */
+  transition:1s;
+}
+/* Configura padrão de label */
+label{
+  color:#1F405E;
+  font-weight: bold;
+}
+/* Configura padrão de botao */
+.btn{
+  /* font-family:"Nunito",sans-serif; */
+  cursor: pointer;
+  align-self: flex-end;
+  color: #FFFFFF;
+  background-color: #458665;
+  border:none;
+  outline: 0;
+  font-weight: bold;
+  padding:15px 30px;
+  border-radius:5px;
+  width: auto;
+  text-transform: uppercase;
+  transition: 1s;
+}
+/* Deixa o botão mais claro quando passa o mouse em cima */
+.btn:hover{
+  background-color: #4d9b61;
+}
+/* Padrão de lista desordenada */ul{
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+p{
+  line-height: 1.4;
+  font-size: 1.1rem;
+}
+
+.justify-text{
+  text-align: justify;
+}
+
+.display-none{
+  display: none;
+}
+
+.titulo-conteudo-padrao{
+  display: block;
+  height: auto;
+  /* background-color: #fff; */
+  border-bottom: solid 1px green;
+  text-align: center;
+  color: #3F635F;
+  margin-bottom: 20px;
+}
+
+.subtitulo{
+  width: auto;
+  /* margin: auto; */
+  /* text-align: center; */
+  font-family: sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #458665;
+}
+
+.text-center{
+  text-align:center;
+}
+/* Estiliza o titulo de cardviews */
+.cardview-title{
+  font-size: 1.6rem;
+}
+
+.link{
+  cursor:pointer;
+}
+/* Aplica estilização na scrollbar no navegador do chrome */
+body::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+body::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+body::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* Configurações do menu superior */
+
+/* Container do menu */
+.menu-container{
+  display: flex;
+  background-color: #FFF;
+  flex-direction: row;
+  position: fixed;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  border-bottom: solid 1px black;
+  transition: 2s;
+  z-index: 1000;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  color: white;
+}
+
+.conteudo-menu{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  /* align-items: center; */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.segura-itens-menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1000px;
+  height: 100%;
+}
+
+/* Configurações */
+.itens-menu{
+  cursor: pointer;
+  text-align: center;
+  /* position: relative; */
+  /* float: left; */
+}
+
+.submenu{
+    display: flex;
+    flex-direction: column;
+  	width:150px;
+    height:0px;
+  	overflow:hidden;
+  	opacity:0;
+    background-color: #4d9b61;
+  	/* transition:1s; */
+    margin-top: 34px;
+  }
+
+  .submenu li{
+    text-align: left;
+    width:130px;
+  	height:85px;
+    padding: 20px 10px;
+    /*background-color: green;*/
+  }
+
+  .submenu li:hover{
+    background-color: #458665;
+  }
+
+.itens-menu:hover>.submenu{
+  /* width:130px; */
+	height:115px;
+	opacity:1;
+	overflow:visible;
+	/* transition:1s; */
+  box-shadow: 11px 5px 5px /*rgb(102, 132, 29)*/rgba(0,0,0,0.5);
+}
+
+.logo-menu{
+  /* justify-content: center; */
+  /* padding-left: 40px;
+  padding-right: 50px; */
+  /* display: flex; */
+  width: 110px;
+}
+
+.logo-menu img{
+
+  width: 100px;
+  height: 120px;
+}
+
+.espaco-do-menu{
+  display: block;
+  height: 80px;
+}
+/* Utilizada no espaço do login e para aproveitamento da centralização dos itens do menu */
+.login-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  color: white;
+  /* background-color: red; */
+}
+
+
+
+/* ------------------------------------------------------------------------- */
+
+/* Conteudo das páginas */
+
+
+/* Pagina Home */
+.conteudo{
+  /* display: flex;
+  flex-direction: column;
+  height: 92vh;
+  display: block;
+  /* background-color: blue; /
+  width: 100vw; */
+}
+
+/* Pagina Home */
+/* area de video */
+.video-principal{
+  display: flex;
+  justify-content: center;
+  /* font-size: 2.8rem; */
+  height: 100vh;
+  width: 100%;
+  /* background-color: black; */
+  /* align-items: center; */
+}
+
+/* Configuracao do video */
+.video-principal video{
+  height: 100px;
+  display: block;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  z-index: -100;
+}
+
+.frase-inicial{
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  width: 80%;
+  height: auto;
+  font-size: 1.8rem;
+  /* background-color: blue; */
+  align-self: center;
+  margin: -5px;
+  color: white;
+}
+/* .titulo h1{
+font-family: Georgia, serif;
+font-size:40px;
+}
+.titulo p{
+margin: 1.6em 0;
+} */
+
+/* Define um padrao pra container */
+.container{
+  display: block;
+  min-height:1000px;
+  height: auto;
+}
+
+.conteudo_locais{
+  width: 1500px;
+  height: 510px;
+  margin:auto;
+  overflow: hidden;
+}
+/* Mantém centralizados os titulos */
+.titulo_locais{
+  display: flex;
+  justify-content: center;
+  color:#1f405e;
+}
+
+.locais-viagem{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.polaroid {
+  width: 350px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 1s;
+}
+
+.polaroid:hover {
+  width: 380px;
+  transition: 1s;
+}
+
+.polaroid img {
+  width: 100%;
+}
+
+.texto-polaroid {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.comentarios-pag-inicial{
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  height: 180px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 1s;
+
+}
+
+.comentarios-pag-inicial:hover{
+  width: 410px;
+  height: 190px;
+  transition: 1s;
+}
+
+.comentario-usuario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  width: 110px;
+}
+
+.comentario-conteudo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 280px;
+  height: 160px;
+  /* text-align: center; */
+}
+
+.comentarios-pag-inicial img{
+  width: 100px;
+  height: 100px;
+  border-radius: 1000px;
+}
+
+/* Carrosel de conteudo */
+
+#content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+	margin: 0 auto;
+	width: 1500px;
+	height: 220px;
+}
+
+#carrossel {
+	float: left;
+	width: 1300px;
+	overflow: hidden;
+	height: 210px;
+}
+
+#carrossel ul li {
+	width: 420px;
+	height: 200px;
+	float: left;
+	margin: 0 5px;
+}
+
+.menu-carrossel {
+	float: left;
+	clear: both;
+  align-self: center;
+	width: 80px;
+  height: 50px;
+	text-align: center;
+}
+
+.menu-carrossel img{
+  width:50px;
+  height: 50px;
+
+}
+
+/* **************************************** */
+/* Conteudo da página de ranking */
+.conteudo-ranking{
+  width: 100%;
+  min-height: 1430px;
+  height: auto;
+  /* padding-top: 70px; */
+  /* background-color: #E0FFFF; */
+}
+/*Segura todo conteudo do ranking*/
+.raking-container{
+  width: 1000px;
+  min-height: 1430px;
+  height: auto;
+  /* background-color: #00FA9A; */
+  margin: auto;
+}
+.rank-subtitulo{
+  width: 1000px;
+}
+
+/*Posição do ranking*/
+.classificacao{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-size: 100% 100%;
+  height: 300px;
+  margin:50px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* .classificacao:hover>.bg-dark{
+  transition: 1s;
+  opacity: 0;
+} */
+
+/* deixa o fundo escuro */
+.bg-dark{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  position: relative;
+  /* transition: 1s; */
+}
+
+.btn-ranking{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 20%;
+}
+
+.info-ranking{
+  width: 990px;
+  padding-left: 10px;
+  display: flex;
+  height: 300px;
+  flex-direction: row;
+  justify-content: flex-end;
+  opacity: 1;
+  position:absolute;
+}
+
+/*Conatiner da imagem do posto rodoviario*/
+.postos-content{
+  width: 1000px;
+  height: 250px;
+  background-color: #C71585;
+  margin: auto;
+  border-radius: 5px;
+}
+
+/* **************************************** */
+/* Conteudo da página de ranking  modal*/
+.modal{
+  width: 60%;
+  height: 50%;
+  margin: auto;
+  margin-top: 150px;
+  z-index: 999;
+	background-color: #fff;
+}
+
+.modalContainer{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    display: none;
+    z-index: 998;
+}
+
+.modal-space{
+
+}
+
+/* ------------------------------------------------------------------------- */
+/* Conteudo da página de frotas de onibus*/
+.conteudo-frotas{
+  /* width: 100%; */
+  min-height: 1430px;
+  height: auto;
+}
+
+.galeria{
+  width: 80vw;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}
+
+.img-galery{
+  width: 380px;
+}
+.img-galery:hover{
+  /* width: 390px; */
+  /* height: 390px; */
+}
+
+.galery-text{
+  background-color: black;
+  opacity: 0.6;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  display: none;
+  margin-top: -305px;
+}
+
+.galery-img-onibus:hover .galery-text{
+  display: flex;
+}
+
+.container_onibus_imagem{
+  width: 200px;
+  height: 270px;
+  /* float: left; */
+  /* border-radius: 100%; */
+}
+
+/* .imagens_onibus{
+  width: 100%;
+  height: 100%;
+} */
+
+.container_onibus_texto{
+  width: 60%;
+  height: 245px;
+  float: left;
+  padding-top: 15px;
+
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 17px;
+}
+/* ------------------------------------------------------------------------- */
+
+
+/* Conteudo da página de Trabalhe Conosco */
+
+.conteudo_trabalhe_conosco{
+  width: 100%;
+  height: 650px;
+  border: solid black 1px;
+}
+
+/* essa div segura o item das descrições */
+.segura_item{
+  width: 1200px;
+  height: 540px;
+  border: solid black;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* essa div segura a descrição do item da pagina trabalhe conosco */
+.item_um{
+  width: 1160px;
+  height: 360px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: solid black 1px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* nessa div nos apresentamos as opcoes do cliente se comunicar conosco */
+.item_dois{
+  width: 1160px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: solid black 1px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* essa div apresenta as dscrições e os campos a serem preenchidos */
+.descricao_item{
+  width: 550px;
+  height: 350px;
+  border: solid black 1px;
+}
+
+/* essa div foi aplicada para fixar o texto */
+.segura_texto{
+  width: 450px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45px;
+  text-align: center;
+}
+
+/* essa é apenas uma div onde solicita informações sobre a pessoa */
+.inf_vc{
+  width: 200px;
+  height: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+/* div aplicada para segurar os dados a serem preenchidos */
+.segura_dados{
+  width: 430px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.dados{
+  width: 150px;
+  height: 20px;
+  float: left;
+}
+
+.campos input{
+  width: 275px;
+  height: 20px;
+}
+
+.campos{
+  width: 10px;
+  height: 10px;
+}
+
+.campos img{
+  width: 10px;
+  height: 10px;
+}
+
+/* div vazia para obter um espaço necessário */
+.vazia{
+  width: 100%;
+  height: 20px;
+}
+
+
+/* aqui é a area onde damos a opção do usuario buscar um pdf de seus aquivos */
+.envie_curriculo{
+  width: 200px;
+  height: 20px;
+  margin-top: 50px;
+  float: left;
+}
+
+/* botao feito para efetuar uma busca de um pdf interno */
+.buscar_pdf button{
+  width: 150px;
+  height: 23px;
+  float: left;
+  margin-top: 50px;
+  margin-left: 80px;
+}
+
+/* botao criado para finalizar uma fase de contratação da empresa */
+.enviar button{
+  width: 150px;
+  height: 23px;
+  float: left;
+  margin-top: 40px;
+  margin-left: 35%;
+}
+
+/* onde passamos ao usuario nossas informações e formas de entrar en contato */
+.comunicacao{
+  width: 400px;
+  height: 100px;
+  border: solid black 1px;
+}
+
+/* onde segura um div chamada titulo */
+.segura_titulo{
+  width: 200px;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* nossos numeros para entrarem em contato conosco */
+.inf_contato{
+  width: 250px;
+  height: 40px;
+  /* border: solid black 1px;  */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* div para passar uma informação basica */
+.inf_redes{
+  width: 250px;
+  height: 40px;
+  /* border: solid black 1px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* conteudo da pagina de fale conosco */
+.conteudo_fale_conosco{
+  width: 100%;
+  height: 1000px;
+}
+
+.container-contato{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -200px;
+  width: 1200px;
+  min-height: 700px;
+  height: auto;
+  overflow: hidden;
+  padding: 1px 0px;
+  /* border: solid black 1px; */
+  /* background-color: white; */
+  margin-right: auto;
+  margin-left: auto;
+  padding:10px 0px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  /* background-color: #ADD8E6; */
+}
+
+/* caixa onde nos damos a opção do cliente fazer uma reclamação, sujestão ou critica */
+.contato-box{
+  width: 30%;
+  height: 605px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 2px;
+  /* margin-left: 35px; */
+}
+
+.opcoes{
+  width: 90%;
+  height: 42px;
+  border: solid black 1px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 36px;
+  margin-top: 3px;
+}
+
+.contato-img{
+  width: 100%;
+  height: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: -3px; */
+}
+
+.contato-img img{
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* div onde o usuario vai fazer suas kavaliações */
+.feedback-cliente{
+  width: 100%;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 3px; */
+}
+
+.feedback-cliente textarea{
+  width: 98.5%;
+  overflow: auto;
+}
+
+.btn_enviar{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* onde estão guardados nossos numeros para contato */
+.cont-forma-de-contato{
+  width: 1800px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* border: solid black 1px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Armazena um tipo de contato  */
+.forma-de-contato{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  width: 30%;
+  height: 90px;
+  border: solid 1px #1F405E;
+}
+/* Estiliza os numeros que aparecerao para contato */
+.numero-contato{
+  width: 250px;
+  height: 40px;
+  /* border: solid black 1px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 35px;
+}
+
+.cont-redes-sociais{
+  width: 250px;
+  height: 40px;
+  /* border: solid black 1px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  text-align: center;
+
+  font-size: 15px;
+}
+
+/* ------------------------------------------------------------------------- */
+.container-conteudo{
+  width: 100%;
+  min-height: 1000px;
+  height: auto;
+  padding-bottom: 80px;
+  overflow: hidden;
+  /* border: solid black; */
+}
+
+.imagem-de-fundo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+  width: 100vh;
+  height: 500px;
+  /* border: solid black 1px; */
+  background-attachment: fixed;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100% 65%;
+}
+
+.cont_legislacao img{
+  width: 100%;
+  height: 500px;
+  border: solid black 1px;
+}
+
+
+.seg_informacoes{
+  width: 1100px;
+  height: 700px;
+  border: solid black 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inf{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -200px;
+  width: 900px;
+  min-height: 700px;
+  height: auto;
+  overflow: hidden;
+  padding: 1px 0px;
+  /* border: solid black 1px; */
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  padding:10px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background-color: #ADD8E6; */
+
+}
+
+.titulo-sobre-imagem{
+  width: 500px;
+  min-height: 40px;
+  background-color: black;
+  opacity: 0.7;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 190px;
+  text-align: center;
+  font-size: 30px;
+  padding: 10px;
+  color: white;
+  border-radius: 3px;
+}
+
+.info-subtitulo{
+  display: flex;
+  align-self:flex-start;
+  width: 180px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+.caixas-inf{
+  margin-top: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.escrita-principal{
+  display: flex;
+  /* align-self: flex-start; */
+  min-width: 400px;
+  width: auto;
+  height: 20px;
+  padding-left: 10px;
+  /* float: left; */
+}
+
+.icon{
+  display: flex;
+  /* align-self: flex-end; */
+  /* background-color: blue; */
+  width: 20px;
+  height: 20px;
+  border: none;
+  /* margin-left: 400px; */
+}
+
+.icon img{
+  width: 30px;
+  height: 30px;
+  margin-left: -5px;
+  margin-top: -2px;
+  /* float: left; */
+  border: none;
+}
+
+.inf-subtitulos{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 850px;
+  min-height: 50px;
+  overflow: hidden;
+  height: auto;
+}
+
+.inf-conteudo{
+  display: none;
+  height: auto;
+  /* overflow: hidden; */
+  border: 1px solid black;
+  cursor: default;
+}
+
+.caixas-inf:hover .inf-conteudo{
+  display: flex;
+  width: 848px;
+  height: 298px;
+}
+
+.conteudo-legislacao{
+  width: 100%;
+  min-height: 50px;
+  height: auto;
+  overflow: auto;
+  /* overflow: hidden; */
+}
+
+/* ------------------------------------------------------------------------- */
+
+.div_segura_tudo{
+  width: 800px;
+  height: 400px;
+  border: solid black 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seg_linhass{
+  width: 750px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.linha_um{
+  width: 100%;
+  height: 70px;
+  border: solid black 1px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.linha{
+  width: 100%;
+  height: 100px;
+  border: solid black 1px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.icon_modal{
+  width: 50px;
+  height: 50px;
+  border: solid black 1px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.icon_modal img{
+  width: 50px;
+  height: 50px;
+}
+
+.reserve{
+  width: 320px;
+  height: 50px;
+  border: solid black 1px;
+  float: left;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dentro_reserve{
+  width: 300px;
+  height: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.segura_origem{
+  width: 250px;
+  height: 90px;
+  border: solid black 1px;
+  margin-top: 5px;
+  margin-left: 80px;
+  float: left;
+}
+
+.origem{
+  width: 150px;
+  height: 30px;
+  background-color: blue;
+  border: solid black 1px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.estado{
+  width: 100px;
+  height: 25px;
+  border: solid black 1px;
+  margin-left: 10px;
+}
+
+.botao_busque{
+  width: 200px;
+  height: 30px;
+  margin-left: 250px;
+  font-size: 25px;
+}
+
+.botao_busque button{
+  width: 300px;
+  height: 60px;
+  margin-top: 05px;
+}
+
+.vazia{
+  width: 100%;
+  height: 50px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* Conteudo da página de postos rodoviarios*/
+.inf-postos-rodoviarios{
+  width: 1000px;
+  min-height: 80vh;
+  height: auto;
+  padding-top: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
+  /* background-color: #C0C0C0; */
+}
+
+.campo-postos{
+  width: 85%;
+  min-height: 1430px;
+  height: auto;
+  background-color: #3f635f;
+  margin: auto;
+  border: solid 1px #000;
+}
+
+.title_postos_rodoviarios{
+  width: 99.9%;
+  height: 130px;
+  background-color: #fff;
+  border: solid 1px #fff;
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.informacoes_postos{
+  width: 33%;
+  height: 100%;
+  /* float: left; */
+  margin-right: 3px;
+  background-color: #1f405e;
+  font-family: sans-serif;
+  font-size: 17px;
+  color: #fff;
+  text-align: center;
+}
+
+.border-none{
+  border: 0px;
+}
+
+.imagens_rodoviaria{
+    width: 100%;
+    height: 100%;
+}
+
+.mapa{
+    width: 100%;
+    height: 100%;
+}
+
+.pesquisar-posto{
+  display:flex;
+  width: 100%;
+  flex-direction:row;
+  justify-content:center;
+}
+
+.lista-posto{
+
+}
+
+.table-postos {
+  width: 100%;
+  border-bottom: solid 2px #C0C0C0;
+}
+
+.table-postos>thead>tr>th{
+  /* width: 200px; */
+  text-align: left;
+  border-bottom:2px solid #ddd;
+  /* height: auto; */
+}
+
+.table-postos>tbody>tr>td, .table-postos>tbody>tr>th, .table-postos>tfoot>tr>td, .table-postos>tfoot>tr>th, .table-postos>thead>tr>td, .table-postos>thead>tr>th{
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Pagina de duvidas frequentes */
+.conteudo-duvidas{
+  width: 100%;
+  /* min-height: 800; */
+  height: auto;
+  padding: 70px 0px;
+  /* background-color: #C0C0C0; */
+}
+
+.duvidas-container{
+  display: flex;
+  width: 1300px;
+  min-height: 500px;
+  height: auto;
+  margin: auto;
+  /* background-color: #458665; */
+  /* border: solid 1px #000; */
+}
+
+.perguntas{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+    min-height: 500px;
+    height: auto;
+    /* background-color: #1f405e; */
+    /* float: left; */
+    margin-left: 1%;
+    border-radius: 25px;
+    /* border: 1px solid black; */
+}
+
+.respostas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: justify;
+    padding: 0px 5px;
+    width: 48%;
+    min-height: 500px;
+    height: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* background-color: #1f405e; */
+    /* float: left; */
+    margin-left: 1%;
+    border-radius: 25px;
+    /* border: 1px solid #3f635f ; */
+}
+
+.perguntas ul li{
+    margin-top: 8px;
+    font-family: 'Nunito',sans-serif;
+    font-size: 18px;
+}
+
+#div_email {
+    font-family: sans-serif;
+    font-size: 18px;
+    display: none;
+    text-align: center;
+    /* margin-top: 50px; */
+}
+
+#div_email2 {
+    font-family: sans-serif;
+    font-size: 18px;
+    display: none;
+    text-align: center;
+    /* margin-top: 50px; */
+}
+
+#div_email3 {
+    font-family: sans-serif;
+    font-size: 18px;
+    display: none;
+    text-align: center;
+    /* margin-top: 50px; */
+}
+/* ------------------------------------------------------------------------- */
+/* Pagina de sobre a empresa */
+.conteudo-sobre-empresa{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 80vw;
+  /* min-height: 1200px; */
+  height: auto;
+  overflow: hidden;
+  padding: 50px 0px;
+  margin-right: auto;
+  margin-left: auto;
+  /* background-color: #C0C0C0; */
+}
+/*Container que segura o conteudo*/
+.sobre-empresa-container{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  min-height: 1200px;
+  height: auto;
+  /* background-color: #458665; */
+  margin-left: auto;
+  margin-right: auto;
+  /* border: solid 1px #000; */
+}
+/*Container que segura o titulo da pagina*/
+.title_sobre_empresaa{
+  width: 99.9%;
+  height: 85px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.cardview-img-text{
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  width: auto;
+  min-height: 350px;
+  height: 350px;
+  background-color: white;
+  margin: 10px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  transition: 1s;
+}
+
+.cardview-img{
+  width: 40%;
+  height: 100%;
+}
+
+.cardview-img img{
+  width: 450px;
+  height: 350px;
+  background-attachment: fixed;
+}
+
+.cardview-text{
+  width: 60%;
+  text-align: justify;
+}
+
+/*Primeiro texto da pagina*/
+.intro-sobre{
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+
+/*Conteiner que segura as quatros imagens*/
+.servicos-oferecidos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:20px 0px;
+    width: 80%;
+    height: 350px;
+    /* background-color: #458665; */
+    /* background-color: #f3f3f3; */
+}
+
+.card-itens{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 320px;
+}
+
+/*Classe das quatros imagens*/
+.card-img{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 10px; */
+    /* margin-left: 10px; */
+}
+/*Classe dos quatros textos*/
+.card-itens-text{
+  padding-top: 20px;
+  height: 200px;
+  text-align: center;
+}
+
+.img-historia{
+  display: block;
+  width: 100%;
+  height: 300px;
+  background: black;
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* Pagina do Usuario */
+.conteuno_pagina_usuario{
+  width: 100%;
+  min-height: 1100px;
+  height: auto;
+  padding-top: 30px;
+  background-color: #C0C0C0;
+}
+/*Container que segura o conteudo*/
+.pagina_usuario_container{
+  width: 100%;
+  min-height: 1100px;
+  height: auto;
+  margin: auto;
+}
+/*Container que segura o titulo da pagina*/
+.title_pagina_usuario{
+  width: 99.9%;
+  height: 80px;
+  background-color: #fff;
+  text-align: center;
+  color: #000;
+  padding-top: 5px;
+}
+
+.menu_lateral{
+  width: 15%;
+  height: 1100px;
+  float: left;
+}
+
+.menu_lateral ul{
+  width: 100%;
+  height: 1100px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.menu_lateral ul li{
+  width: 100%;
+  height: 30px;
+  background-color: #4d9b61;
+  margin-top: 5px;
+  padding-top: 15px;
+  border-radius: 10px;
+
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+.menu_lateral ul li:hover{
+    -webkit-transform: scale(2);
+        -ms-transform: scale(2);
+        transform: scale(0.8);
+}
+.conteudo_usuario{
+  width: 85%;
+  min-height: 1100px;
+  height: auto;
+  background-color: #B0E0E6;
+  float: left;
+}
+
+.container_informacoes{
+  width: 40%;
+  height: 280px;
+  background-color: #fff;
+  margin-left: 6%;
+  margin-top: 3%;
+  border-radius: 10px;
+  padding-top: 20px;
+  float: left;
+  /* box shadow */
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+}
+
+.image_user{
+  margin-left: 20px;
+  float: left;
+}
+
+.informacoes_dados{
+  margin-left: 30px;
+  margin-top: 10px;
+  float: left;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+.outras_informacoes{
+  width: 90%;
+  margin: auto;
+  margin-top: 140px;
+}
+
+.container_interacoes{
+    width: 75%;
+    min-height: 650px;
+    height: auto;
+    background-color: #1f405e;
+    margin: auto;
+    margin-top: 370px;
+    border-radius: 10px;
+    /* box shadow */
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+}
+
+.container_interacoes h3{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.ultimas_interacoes{
+    width: 100%;
+    height: 305px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.container_user{
+    width: 100%;
+    height: 80px;
+    background-color: #4d9b61;
+    margin-bottom: 12px;
+}
+
+.img_interacao{
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+
+.name_user{
+    margin-top: 35px;
+    float: left;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.local{
+    margin-top: 35px;
+    margin-left: 50%;
+    float: left;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.text_interacao{
+    width: 45%;
+    float: left;
+    margin-left: 10px;
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 15px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+    text-align: justify;
+
+}
+.img_viagem{
+    width: 50%;
+    height: 200px;
+    float: left;
+    border-radius: 10px;
+}
+/* ------------------------------------------------------------------------- */
+
+/* Pagina de historico */
+.conteudo_historico{
+  width: 100%;
+  min-height: 1100px;
+  height: auto;
+  padding-top: 50px;
+  background-color: #C0C0C0;
+}
+/*Container que segura o conteudo*/
+.historico_container{
+  width: 85%;
+  min-height: 1100px;
+  height: auto;
+  background-color: #458665;
+  margin: auto;
+  border: solid 1px #000;
+}
+/*Container que segura o titulo da pagina*/
+.title_historico{
+  width: 99.9%;
+  height: 85px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/*Segura todos os itens do historico*/
+.historico{
+    width: 70%;
+    height: 950px;
+    background-color: #1f405e;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.conetudo_left{
+  width: 50%;
+  min-height: 920px;
+  height: auto;
+  float: left;
+  padding-top: 30px;
+
+}
+
+.registros{
+  width: 90%;
+  height: 240px;
+  margin: auto;
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding-top: 10px;
+  /* box shadow */
+box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+}
+
+.conetudo_rigth{
+  width: 50%;
+  min-height: 920px;
+  height: auto;
+  padding-top: 30px;
+  float: left;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* Página de cadastro */
+.conteudo-cadastro{
+  width: 100%;
+  min-height: 1100px;
+  height: auto;
+  padding-top: 50px;
+  /* background-color: #C0C0C0; */
+}
+/*Container que segura o conteudo*/
+.cadastro-container{
+  display: flex;
+  width: 1000px;
+  min-height: 950px;
+  height: auto;
+  flex-direction: row;
+  justify-content: center;
+  /* background-color: #fff; */
+  margin: auto;
+  /* border-radius: 10px; */
+}
+
+/*Segura todos os itens do cadastro*/
+.cadastro{
+  display: flex;
+  width: 100%;
+  min-height: 950px;
+  height: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #fff; */
+  margin: auto;
+  /* border-radius: 10px; */
+}
+
+/*Container para colocar a imagem de perfil*/
+#imagem{
+  cursor: pointer;
+  width: 190px;
+  height: 200px;
+  /* margin: auto; */
+}
+
+label#imagem{
+  margin: 0px;
+  align-self: center;
+}
+
+#id_sua_img{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 100px;
+}
+
+/* contem os campos para adicionar as fotos */
+.campo-foto{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  height: 300px;
+  /* height: auto; */
+  padding: 0px;
+  margin: 0px;
+}
+/* Armazena os dados principais para cadastro */
+.dados-principais-cad{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 200px;
+  /* background-color: grey; */
+}
+/* Armazena os dados de conteudo que serão inseridos */
+.dados-complementares-cad{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  height: 500px;
+}
+
+.dados-pessoais{
+  display: flex;
+  flex-direction: row ;
+}
+
+.dados-esquerda{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  /* align-items: center; */
+}
+
+.dados-direita{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+}
+
+/* mantem a label e input padronizadas */
+.caixa-dados{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  /* width: 400px; */
+  height: 60px;
+  /* background-color: grey; */
+  /* border: solid 1px blue; */
+  /* margin: 10px 0px; */
+}
+
+
+/* Adiciona foto no cadastro ou edição de funcionarios */
+.adicionar-foto{
+  display: flex;
+  align-self: center;
+  width: 190px;
+  height: 200px;
+}
+
+.input-foto{
+  display: none;
+}
+
+/*Botão para selecionar a foto*/
+.botao_foto_perfil{
+  margin-left: 37.5%;
+}
+/*titulo das caixas de textos*/
+.text_left{
+  margin-left: 19%;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+/*Tabela que segura todos os itens dos dados pessoais do usuario*/
+.tabela_cadastro{
+  width: 60%;
+  height: 400px;
+  /* margin-left: 19%; */
+}
+/*Colunas que seguram o titulo da caixa de texto*/
+.colunas_cadastro_nome{
+  width: 50%;
+  height: 15px;
+}
+/*Colunas que seguram a caixa de texto*/
+.colunas_cadastro_caixa{
+  width: 50%;
+  height: 40px;
+}
+
+.dados-endereco{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* ------------------------------------------------------------------------- */
+/* Pagina de interação do usuario*/
+.conteudo_interacao{
+  /* width: 100%; */
+  /* min-height: 1600px; */
+  height: auto;
+  margin: 0px auto;
+  padding-top: 50px;
+  /* background-color: #C0C0C0; */
+}
+
+/*Container que segura o titulo da pagina*/
+.title_interacao{
+  width: 99.9%;
+  height: 85px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.interacao{
+    width: 80%;
+    height: 1430px;
+    background-color: #1f405e;
+    margin: auto;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+.interacao h2{
+text-align: center;
+}
+
+.postar_viagem{
+  width: 80%;
+  min-height: 300px;
+  height: auto;
+  margin: auto;
+  background-color: #fff;
+  margin-bottom: 20px;
+  /* box shadow */
+box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+border-radius: 10px;
+}
+
+.box_interacao{
+  width: 99.5%;
+  min-height: 260px;
+  border-radius: 10px;
+}
+
+.minhas_viagens{
+  width: 80%;
+  min-height: 300px;
+  height: auto;
+  margin: auto;
+  background-color: #fff;
+  /* box shadow */
+box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+border-radius: 10px;
+}
+
+.container_user{
+    width: 100%;
+    height: 80px;
+    background-color: #4d9b61;
+    margin-bottom: 12px;
+}
+
+.img_interacao{
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+
+.name_user{
+    margin-top: 35px;
+    float: left;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.local{
+    margin-top: 35px;
+    margin-left: 50%;
+    float: left;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.text_interacao{
+    width: 45%;
+    float: left;
+    margin-left: 10px;
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 15px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+    text-align: justify;
+
+}
+.img_viagem{
+    width: 50%;
+    height: 200px;
+    float: left;
+    border-radius: 10px;
+}
+/* ------------------------------------------------------------------------- */
+
+/* Pagina de acompanhamento da viagem */
+.conteudo_acompanhamento{
+  width: 100%;
+  min-height: 1000px;
+  height: auto;
+  padding-top: 50px;
+  /* background-color: #C0C0C0; */
+}
+/*Container que segura o conteudo*/
+.acompanhamento_container{
+  width: 85%;
+  min-height: 1000px;
+  height: auto;
+  background-color: #458665;
+  margin: auto;
+  border: solid 1px #000;
+}
+/*Container que segura o titulo da pagina*/
+.title_acompanhamento{
+  width: 99.9%;
+  height: 85px;
+  background-color: #fff;
+  border: solid 1px #fff;
+
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.acompanhamento{
+    width: 80%;
+    height: 850px;
+    background-color: #1f405e;
+    margin: auto;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+.info_viagem{
+  width: 40%;
+  min-height: 220px;
+  height: auto;
+  background-color: #fff;
+  margin-left: 20px;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.mapa_viagem{
+  width: 80%;
+  min-height: 300px;
+  height: auto;
+  background-color: #fff;
+  margin-left: 20px;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.rota_mapa{
+  width: 100%;
+  min-height: 400px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.parada{
+  width: 15%;
+  min-height: 50px;
+  float: left;
+  height: auto;
+  background-color: #fff;
+  margin-left: 20px;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+/* ------------------------------------------------------------------------- */
+
+/* pagina interacao */
+
+/*Div que seguro toda pagina*/
+.conteudo_interacao{
+  display: flex;
+  justify-content: center;
+  height: auto;
+  /* width: 100%; */
+  margin: 0px auto;
+  /* background-color: #ffffff; */
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+/*Container que segura todas as caixas*/
+.interacao_container{
+  /* width: 70%; */
+  min-height: 1200px;
+  height: auto;
+  /* background-color: #458665; */
+  margin: auto;
+
+}
+
+/*Div do titulo da pagina*/
+.title_interacao{
+  width: 100%;
+  height: 70px;
+  background-color: #000;
+  border: solid 2px #000;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+/* caixa com o conteudo da postagem */
+.cardbox{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 1200px;
+  height:500px;
+  margin-bottom: 30px;
+}
+
+/*  */
+.cardbox-title{
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4d9b61;
+  padding: 0px 10px;
+}
+
+.foto-user{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/*Foto usuario*/
+.foto-user img{
+  width: 80px;
+  height: 80px;
+  margin: 0px 8px;
+  border-radius: 100px;
+  /* float: left; */
+  /* padding-top: 1px; */
+}
+
+.cardbox-local{
+  /* align-self: flex-end; */
+}
+
+.cardbox-content{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  width: 1200px;
+  height: 420px;
+}
+
+.cardbox-text{
+  width: 660px;
+  height: 380px;
+  padding: 20px;
+  /* background-color: black; */
+  text-align: justify;
+}
+
+.cardbox-img{
+  /* margin-left: 50px; */
+  width: 500px;
+  height: 418px;
+  /* overflow: hidden; */
+}
+
+.cardbox-img img{
+  width: 100%;
+  height: 100%;
+}
+
+/********************************************************/
+
+/*Pagina de pagamento*/
+
+/**************Pagina identificacao usuario**************/
+
+/*Div que seguro toda pagina*/
+.conteudo_identificacao{
+  height: auto;
+  width: 100%;
+  background-color: #000000;
+  margin-top: 1%;
+}
+
+/*Container que segura todas as caixas*/
+.identificacao_container{
+  width: 70%;
+  min-height:1200px;
+  height: auto;
+  /* background-color: #456958; */
+  margin: auto;
+
+}
+.title_pagamento{
+  background-color: #456958;
+  text-align: center;
+}
+
+
+
+.estagio_pagamento{
+  height:300px;
+  width:85%;
+  background-color: #858589;
+  margin-left: 7%;
+}
+
+.titulo_texto{
+  background-color: #456958;
+  text-align: center;
+  height: auto;
+  font-size: 20px;
+
+}
+
+.tabela_usuario{
+  background-color: #000000;
+  width:50%;
+  height: 100px;
+  margin-left: 25%;
+}
+
+.coluna_usuario{
+  background-color: #ffffff;
+  width: auto ;
+}
+
+.linha_texto{
+  width: 50%;
+  height: 40px;
+}
+
+.linha_campo{
+  width: 50%;
+  height: 40px;
+}
+
+.linha_img{
+  width: 50%;
+  height: 60px;
+}
+
+.botao_entrar{
+  width: 20%;
+  height: 40px;
+  float: right;;
+  background-color:#000000;
+  margin-top: 2%;
+}
+
+.btn_entrar{
+  width: 30%;
+  height: 30px;
+  margin-left: 260px;
+}
+
+.img_caixa{
+  height: auto;
+  width: 40%;
+  margin-left: 25%;
+}
+
+
+/**************************/
+
+/**************************/
+
+/*Div que seguro toda pagina*/
+.conteudo_pagamento{
+  height: auto;
+  width: 100%;
+  /* background-color: #000000; */
+  margin-top: 1%;
+}
+
+/*Container que segura todas as caixas*/
+.pagamento_container{
+  width: 70%;
+  min-height:1200px;
+  height: auto;
+  /* background-color: #458665; */
+  margin: 50px auto;
+
+}
+.title_pagamento{
+  /* background-color: #858589; */
+  text-align: center;
+}
+
+/**filtro de origem**/
+.filtro_origem{
+  height: 350px;
+  width: 90%;
+  background-color: #ffffff;
+  margin-left: 5%;
+}
+
+.estagio_pagamento{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:180px;
+  width:  85%;
+  background-color: #858589;
+  margin-left: 7%;
+}
+
+.fundo-estagio{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  height: 180px;
+  background-color: white;
+  border-bottom: 1px dashed green;
+}
+
+.placa-estagio{
+  width: 40px;
+  height: 80px;
+  background-color: blue;
+}
+
+.placa-estagio img{
+  width: 40px;
+  height: 80px;
+}
+
+.onibus-estagio{
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  /* background-color: red; */
+  width: 50px;
+  height: 50px;
+  margin-left: -20%;
+  /* margin-left: 0px; */
+  /* margin-left: 20%; */
+}
+
+.onibus-estagio img{
+  width: 50px;
+  height: 50px;
+}
+
+.pagamento{
+  height: 500px;
+  width: 90%;
+  background-color: #456958;
+  margin-left: 5%;
+}
+
+.origem{
+  width: 90%;
+  height: 300px;
+  /* background-color: #000000; */
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 5%;
+  float: left;
+}
+
+.tabela_filtro{
+  /* background-color: #000000; */
+  width:90%;
+  height: 100px;
+  margin-left: 5%;
+}
+
+.coluna_filtro{
+  /* background-color: #ffffff; */
+  width: auto ;
+}
+
+.linha_texto{
+  width: 50%;
+  height: 40px;
+}
+
+.linha_campo{
+  width: 50%;
+  height: 40px;
+
+}
+
+.txt_texto{
+  border-radius: 1px 1px 1px 1px;
+}
+
+.botao_confirma{
+  width: 20%;
+  height: 40px;
+  float: right;;
+  /* background-color:#000000; */
+  margin-top: 2%;
+}
+
+.btn_confirma{
+  width: 70%;
+  height: 30px;
+}
+
+
+
+.tabela_pagamento{
+  background-color: #ffffff;
+  width:90%;
+  height: 100px;
+  margin-left: 5%;
+}
+
+.coluna_pagamento{
+
+}
+
+/************************/
+
+
+/* ------------------------------------------------------------------------- */
+
+
+/* Configurações do footer (rodapé) */
+
+/* Container principal do rodapé */
+.footer-container{
+  display: block;
+  /* width: 100%; */
+  height: 370px;
+  border-top: 2px solid  #3f635f;
+  align-items: center;
+  background-color: #162e44;
+  color: white;
+}
+
+/* .borda-footer{
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 2px solid black;
+} */
+
+/* Div de conteúdo do menu */
+.conteudo-footer{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  height: 370px;
+  /* background-color: grey; */
+}
+
+/* Define padrões para o conteudo */
+.conteudo-footer table td {
+  /* border: solid 1px black; */
+}
+
+/* Inserindo sublinhagen no titulo de links do rodapé */
+.conteudo-footer table td h3{
+  text-decoration: underline;
+}
+
+/* Configura titulos do footer */
+.links-footer{
+  display: flex;
+  width: 100%;
+  /* width: 70em; */
+  height: 130px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+/* Div que contem formas de pagamentos e telefones da empresa */
+/* Ajusta a organização das outras div's */
+.info-empresa{
+  display: flex;
+  height: 170px;
+  justify-content: space-around;
+}
+
+/* Configura a div de pagamentos */
+.pagamento-info{
+
+}
+
+/* Define tamanho padrão para os icones de pagamento */
+.icones-pagamento img{
+  width: 30px;
+  height: 30px;
+}
+
+
+/*  */
+.itens-rodape{
+
+}
+
+/* Área para inserir icones de redes sociais */
+.campo-redes-sociais{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+/* Configuração de icones-redes sociais */
+.redes-sociais img{
+  width: 50px;
+  height: 50px;
+}
+
+/* Config informações de pagamento-footer */
+.pagamento-footer{
+  width: 200px;
+  height: 100px;
+  background-color: blue;
+}
+
+/* Informações de contato footer */
+.contato-footer{
+  width: auto;
+  height: auto;
+  /* background-color: blue; */
+}
+
+.final-rodape{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.final-rodape img{
+  width: 30px;
+  height: 30px;
+}
+
+.referencias-rodape{
+  display: flex;
+  align-items: center;
+
+  /* text-align: center; */
+}
+/* ------------------------------------------------------------------------- */
+
+/* Mobile */
